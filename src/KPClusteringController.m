@@ -109,12 +109,13 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
 
     KPClusteringControllerMapViewportChangeState mapViewportChangeState = self.mapViewportChangeState;
 
-    if (mapViewportChangeState != KPClusteringControllerMapViewportNoChange) {
+    //Remove this to be able to resfresh annotations without changing the region
+   // if (mapViewportChangeState != KPClusteringControllerMapViewportNoChange) {
         [self updateVisibleMapAnnotationsOnMapView:(animated && mapViewportChangeState != KPClusteringControllerMapViewportPan)];
 
         self.lastRefreshedMapRect = self.mapView.visibleMapRect;
         self.lastRefreshedMapRegion = self.mapView.region;
-    }
+   // }
 }
 
 // only refresh if:
